@@ -1,11 +1,11 @@
-export function isPalindrome(word) {
-    let match = [];
-    for (const char of word) {
-        match.unshift(char);
+function reverse(string) {
+    return string.split("").reverse().join("");
+  }
+  
+  export function isPalindrome(word) {
+    if (!/^[A-Za-z]+$/.test(word)) {
+      throw new Error("Invalid input");
     }
-    if (match === word) {
-        return true;
-    } else {
-        return false;
-    }
-}
+    const lowerCaseWord = word.toLowerCase();
+    return lowerCaseWord === reverse(lowerCaseWord);
+  }
